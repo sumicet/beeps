@@ -50,6 +50,7 @@ const MotionVStack = motion(VStack);
 
 export default function Home() {
     const { data } = useQuery<Message[]>('chat', {
+        // For websockets, we don't want to refetch the data
         staleTime: Infinity,
     });
 

@@ -6,6 +6,7 @@ import {
     useDisclosure,
     Icon,
     HStack,
+    DrawerOverlay,
 } from '@chakra-ui/react';
 import { useRef } from 'react';
 import { FiMenu } from 'react-icons/fi';
@@ -35,6 +36,7 @@ export function Drawer() {
                 finalFocusRef={btnRef}
                 preserveScrollBarGap
             >
+                <DrawerOverlay />
                 <DrawerContent>
                     <DrawerBody>
                         <HStack spacing='space12' height='menu'>

@@ -1,4 +1,4 @@
-import { createMultiStyleConfigHelpers, cssVar } from '@chakra-ui/react';
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react';
 import { drawerAnatomy } from '@chakra-ui/anatomy';
 import { mode } from '@chakra-ui/theme-tools';
 
@@ -21,6 +21,9 @@ export const Drawer = defineMultiStyleConfig({
         header: {
             textStyle: 'large',
             paddingBottom: 'space32',
+        },
+        overlay: {
+            bg: mode('10.light', '10.dark')(props),
         },
     }),
 });
