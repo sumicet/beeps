@@ -1,4 +1,5 @@
 import { Stats } from '@/hooks';
+import { formatNumber } from '@/utils';
 import { Text, VStack, StackProps, HStack, Icon } from '@chakra-ui/react';
 import { GoGraph } from 'react-icons/go';
 import { RiTimerFlashFill } from 'react-icons/ri';
@@ -8,11 +9,11 @@ export function Statistics(props: StackProps) {
     const { data } = useQuery<Stats>('stats');
     const statistics = [
         {
-            text: `Total events: ${data?.totalMessages || 0}`,
+            text: `Total events: ${formatNumber(data?.totalMessages || 0)}`,
             icon: GoGraph,
         },
         {
-            text: `Rate: ${data?.rate || 0}/min`,
+            text: `Rate: ${formatNumber(data?.rate || 0)}/min`,
             icon: RiTimerFlashFill,
         },
     ] as const;

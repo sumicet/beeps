@@ -1,15 +1,14 @@
 import { defineStyleConfig } from '@chakra-ui/react';
-import { mode } from '@chakra-ui/theme-tools';
 
 export const Button = defineStyleConfig({
-    baseStyle: props => ({
+    baseStyle: {
         cursor: 'pointer',
         display: 'inline-flex',
         justifyContent: 'center',
         alignItems: 'center',
         color: 'inherit',
         height: 'space40',
-    }),
+    },
     variants: {},
     sizes: {
         round: {
