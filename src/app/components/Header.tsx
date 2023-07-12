@@ -1,20 +1,12 @@
-import { Box, Center, HStack, Icon, Text, useColorMode, useColorModeValue } from '@chakra-ui/react';
-import { MdLogoDev } from 'react-icons/md';
+import { Box, Center, HStack, useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { Drawer } from './Drawer';
-
-export function Logo() {
-    return (
-        <HStack spacing='space8'>
-            <Icon as={MdLogoDev} boxSize='space32' />
-            <Text size='title'>Beeps</Text>
-        </HStack>
-    );
-}
+import { Logo } from './Logo';
 
 export function Header() {
     const { colorMode, setColorMode } = useColorMode();
     const bgColor = useColorModeValue('menu.light', 'menu.dark');
+    const dividerColor = useColorModeValue('5.light', '5.dark');
 
     return (
         <Center
@@ -47,6 +39,14 @@ export function Header() {
                     />
                 </Box>
             </HStack>
+            <Box
+                width='100%'
+                bg={dividerColor}
+                height={1}
+                maxWidth='container'
+                position='absolute'
+                bottom={0}
+            />
         </Center>
     );
 }

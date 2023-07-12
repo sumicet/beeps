@@ -5,9 +5,9 @@ import { forwardRef } from 'react';
 import { useQuery } from 'react-query';
 import { ItemProps, Virtuoso } from 'react-virtuoso';
 import { AnimatePresence, motion } from 'framer-motion';
-import { MessageCard } from './components';
 import { Box, Text, VStack, chakra, useColorModeValue, useToken } from '@chakra-ui/react';
 import { HashLoader } from 'react-spinners';
+import { MessageCard } from '@/components';
 
 const Item = forwardRef<HTMLDivElement, ItemProps<Message>>(({ children, ...rest }, ref) => {
     // @ts-ignore

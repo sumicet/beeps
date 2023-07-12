@@ -11,8 +11,8 @@ import {
 import { useRef } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { Statistics } from './Statistics';
-import { Logo } from './Header';
 import { GrFormClose } from 'react-icons/gr';
+import { Logo } from './Logo';
 
 export function Drawer() {
     const { isOpen, onOpen, onClose } = useDisclosure();

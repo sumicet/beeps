@@ -20,7 +20,7 @@ export const textStyles = {
     small: {
         fontFamily: 'inter',
         fontSize: 13,
-        lineHeight: 1.5,
+        lineHeight: 1.2,
         fontWeight: 500,
     },
 };
