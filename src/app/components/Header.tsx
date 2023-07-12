@@ -39,6 +39,7 @@ export function Header() {
                     />
                 </Box>
             </HStack>
+            {/* TODO: Replace with Chakra-UI's `Divider`. */}
             <Box
                 width='100%'
                 bg={dividerColor}

@@ -11,7 +11,7 @@ import {
 import { useRef } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { Statistics } from './Statistics';
-import { GrFormClose } from 'react-icons/gr';
+import { IoCloseOutline } from 'react-icons/io5';
 import { Logo } from './Logo';
 
 export function Drawer() {
@@ -43,9 +43,9 @@ export function Drawer() {
                             <Button
                                 display={{ base: 'flex', lg: 'none' }}
                                 size='round'
-                                onClick={onOpen}
+                                onClick={onClose}
                             >
-                                <Icon as={GrFormClose} boxSize='space20' />
+                                <Icon as={IoCloseOutline} boxSize='space20' />
                             </Button>
                             <Logo />
                         </HStack>
