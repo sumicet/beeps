@@ -20,7 +20,7 @@ export interface Stats {
     rate: number;
 }
 
-const delay = 3500;
+const delay = 3500; // 3.5 seconds
 
 export const useWebSocket = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -48,10 +48,10 @@ export const useWebSocket = () => {
                 inconsistentData = inconsistentData.slice(-10000);
             }
 
-            // The delay doesn't seem to be higher than 3500 so to avoid layout shifts, we'll use that as the threshold.
+            // The inconsistencies in timestamps seem to resolve after 3500ms if ordered. To avoid layout shifts, we'll only render events which are older than 3500ms.
             const orderedData = inconsistentData.filter(
                 event => Date.now() - event.timestamp > delay
-            ); // 5 seconds
+            );
 
             queryClient.setQueryData<Message[]>(['chat'], orderedData);
             queryClient.setQueryData<Stats>(['stats'], old => ({
@@ -64,7 +64,7 @@ export const useWebSocket = () => {
             startTime.current = Date.now();
             setInterval(() => {
                 setIsLoading(false);
-            }, delay * 1000); // 3.5 seconds
+            }, delay * 1000);
         };
 
         // Count the rate of messages per minute.
@@ -72,7 +72,6 @@ export const useWebSocket = () => {
             if (!startTime.current) return;
 
             const minutesPassed = Math.floor((Date.now() - startTime.current) / 1000 / 60) || 1;
-            console.log('minutesPassed', minutesPassed);
             queryClient.setQueryData<Stats>(['stats'], old => ({
                 rate: inconsistentData?.length / minutesPassed,
                 totalMessages: old?.totalMessages || 0,
