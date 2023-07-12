@@ -1,5 +1,3 @@
-'use client';
-
 import { config } from '@/config';
 import { useEffect, useRef, useState } from 'react';
 import { useQueryClient } from 'react-query';
