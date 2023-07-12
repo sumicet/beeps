@@ -8,6 +8,8 @@ import { ReactNode } from 'react';
 import { ColorModeScript } from '@chakra-ui/react';
 import { theme } from '@/theme';
 
+// TODO: Add metadata.
+
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang='en'>

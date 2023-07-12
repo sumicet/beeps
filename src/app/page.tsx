@@ -9,6 +9,8 @@ import { Box, Text, VStack, chakra, useColorModeValue, useToken } from '@chakra-
 import { HashLoader } from 'react-spinners';
 import { MessageCard } from '@/components';
 
+// Animations need more work. Sometimes multiple messages will be added to the data array, so all of them should be animated, not just the last one.
+
 const Item = forwardRef<HTMLDivElement, ItemProps<Message>>(({ children, ...rest }, ref) => {
     // @ts-ignore
     if (rest['data-index'] !== rest?.context?.last)
@@ -50,7 +52,7 @@ const MotionVStack = motion(VStack);
 
 export default function Home() {
     const { data } = useQuery<Message[]>('chat', {
-        // For websockets, we don't want to refetch the data
+        // For websockets, we don't want to refetch the data.
         staleTime: Infinity,
     });
 
@@ -81,9 +83,9 @@ export default function Home() {
             <Virtuoso
                 useWindowScroll
                 overscan={20}
+                // When the user changes the tab and comes back, Virtuoso will scroll through many items to catch up. Should fix.
                 followOutput
                 atBottomThreshold={300}
-                totalCount={data?.length ?? 0}
                 data={data}
                 itemContent={(_, message) => (
                     <MessageCard key={`${message.id} ${message.timestamp}`} {...message} />

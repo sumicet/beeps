@@ -44,11 +44,11 @@ export const useWebSocket = () => {
             } else {
                 inconsistentData.push(data);
                 inconsistentData.sort((a, b) => a.timestamp - b.timestamp);
-                // Limit to 10k messages as the user will probs never want to read more than that
+                // Limit to 10k messages as the user will probs never want to read more than that.
                 inconsistentData = inconsistentData.slice(-10000);
             }
 
-            // The delay doesn't seem to be higher than 3500 so to avoid layout shifts, we'll use that as the threshold
+            // The delay doesn't seem to be higher than 3500 so to avoid layout shifts, we'll use that as the threshold.
             const orderedData = inconsistentData.filter(
                 event => Date.now() - event.timestamp > delay
             ); // 5 seconds
@@ -67,7 +67,7 @@ export const useWebSocket = () => {
             }, delay * 1000); // 3.5 seconds
         };
 
-        // Count the rate of messages per minute
+        // Count the rate of messages per minute.
         intervalRef.current = setInterval(() => {
             if (!startTime.current) return;
 

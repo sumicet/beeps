@@ -1,6 +1,7 @@
-import { Flex, HStack, VStack, useColorModeValue } from '@chakra-ui/react';
 import '@/theme/globals.css';
 import '@fontsource-variable/inter';
+
+import { Flex, HStack, VStack, useColorModeValue } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import { useWebSocket } from '@/hooks';
 import { Header } from './Header';
